@@ -32,7 +32,11 @@
 }
 
 .video_content {
-    font-size: 0.3rem;
     padding: 10px;
     cursor: pointer;
 }
+.video_title {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+

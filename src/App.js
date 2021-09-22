@@ -39,7 +39,6 @@ function App() {
     const getFilteredVideos = () => {
       const filteredData = videos.filter(video => video.tags.includes(tags))
          setFilteredVideos(filteredData)
-         console.log(filteredData)
     }
     getFilteredVideos();
   }, [tags, videos]);
@@ -63,13 +62,18 @@ function App() {
 
   useEffect(() => {
     const setls = () => {
+      if (favourites.length !== 0) {
         localStorage.setItem('favData', JSON.stringify(favourites))
+      }
     }
     setls()
   }, [favourites])
 
+
+
+
   const showls = () => {
-    setFilteredVideos(favourites)
+    setFavourites(favourites)
   }
 
 
@@ -84,11 +88,10 @@ function App() {
       
       <button type="button" onClick={showls}>FAVOURITES</button>
       </div>
-      <div className="container">
-        <div>
-          {filteredVideos ? <h1>{tags}</h1> : null}
+      <div className="filter_videos">
         {filteredVideos.map((video, index) => <Video handleRemoveFavourite={removeFavourite} handleAddFavourites={addFavourites} video={video} />)}
         </div>
+      <div className="container">
            {videos.map((video, index) => <Video handleRemoveFavourite={removeFavourite} handleAddFavourites={addFavourites} video={video} />)} 
         </div>
     </div>
