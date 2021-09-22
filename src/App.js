@@ -1,10 +1,10 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import Video from "./components/Video";
+import Header from "./components/Header";
 
 function App() {
-  const [videos, setVideos] = useState([
-  ]);
+  const [videos, setVideos] = useState([]);
   const [filteredVideos, setFilteredVideos] = useState([])
   const [favourites, setFavourites] = useState([])
   const [tags, setTags] = useState("")
@@ -26,9 +26,12 @@ function App() {
     "value": "cancer"},
     {"name": " TB",
     "value": "tb"},
-    {"name": " Asthma",
-    "value": "asthma"}
-
+    {"name": " Heart",
+    "value": "heart"},
+    {"name": "BP",
+    "value": "bp"},
+    {"name": "Diabetes",
+    "value": "diabetes"}
   ]
 
 
@@ -72,17 +75,21 @@ function App() {
 
   return (
     <div className="App">
-      <div className="carousel"></div>
+      <Header videos={videos}/>
       <div className="tags">
+        <h4>Tags</h4>
         {btns.map((btn) => 
-          <button type="button" onClick={()=> filter(btn.value)} className="btn">{btn.name}</button>
+          <button type="button" onClick={()=> filter(btn.value)}>{btn.name}</button>
         )}
       
-      <button type="button" onClick={showls} className="btn">FAVOURITES</button>
+      <button type="button" onClick={showls}>FAVOURITES</button>
       </div>
       <div className="container">
-           {filteredVideos.map((video, index) => <Video favourites={favourites} handleRemoveFavourite={removeFavourite} handleAddFavourites={addFavourites} video={video} />)}
-           {videos.map((video, index) => <Video favourites={favourites} handleRemoveFavourite={removeFavourite} handleAddFavourites={addFavourites} video={video} />)} 
+        <div>
+          {filteredVideos ? <h1>{tags}</h1> : null}
+        {filteredVideos.map((video, index) => <Video handleRemoveFavourite={removeFavourite} handleAddFavourites={addFavourites} video={video} />)}
+        </div>
+           {videos.map((video, index) => <Video handleRemoveFavourite={removeFavourite} handleAddFavourites={addFavourites} video={video} />)} 
         </div>
     </div>
   );
