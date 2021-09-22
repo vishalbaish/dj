@@ -1,8 +1,8 @@
-.modal {
-    z-index: 999;
+.modalview {
+    z-index: 1111;
 }
 
-.modal, .overlay {
+.modalview, .overlay {
     width: 100%;
     top: 0;
     bottom: 0;
@@ -12,11 +12,6 @@
 }
 .overlay {
     background: rgba(49,49,49,0.8);
-}
-
-.videoframe {
-    width: 100% !important;
-    height: 100%;
 }
 
 .modal-content {
@@ -39,7 +34,7 @@
     font-size: 0.8rem;
 }
 
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
     .modal-content {
         position: absolute;
         padding: 30px;
@@ -52,4 +47,4 @@
     .video_player {
         width: 100% !important;
     }
-}
+} */

@@ -8,7 +8,7 @@ function Modal({ Video,setToggle }) {
         setToggle(prev => !prev)
     }
     return (
-        <div className="modal">
+        <div className="modalview">
            <div onClick={closeModal} className="overlay"></div> 
            <div className="modal-content">
            <ReactPlayer className="video_player" url={Video.videolink} controls/>

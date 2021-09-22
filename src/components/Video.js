@@ -35,7 +35,7 @@ function Video({ video, handleAddFavourites, handleRemoveFavourite }) {
             )`,
             backgroundPosition: "center center",
         }} className="video" >
-            <div className="favourites"><button onClick={() => changeFavouriteIcon(video)}>{favouriteIcon ? <i class="fas fa-heart"></i> : <i class="far fa-heart"></i>}</button></div>
+            <div className="favourites"><button onClick={() => changeFavouriteIcon(video)}>{favouriteIcon ? <i className="fas fa-heart"></i> : <i className="far fa-heart"></i>}</button></div>
             <div className="video_content" onClick={showModal}>
                <div className="video_title">{video.title}</div>
                </div>
