@@ -1,0 +1,38 @@
+.video {
+    margin: 10px;
+    position: relative;
+    border-radius: 5px;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: transform 450ms;
+}
+
+.favourites {
+    position: absolute;
+    z-index: 10;
+    border-radius: 5px;
+    top: 5px;
+    right: 5px;
+}
+
+.favourites button {
+    background: transparent;
+    border: none;
+}
+
+.favourites i:hover {
+    cursor: pointer;
+}
+
+.video:hover {
+    transform: scale(1.08);
+}
+
+.video_content {
+    font-size: 0.3rem;
+    padding: 10px;
+    cursor: pointer;
+}
