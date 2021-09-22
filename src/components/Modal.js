@@ -11,7 +11,7 @@ function Modal({ Video,setToggle }) {
         <div className="modal">
            <div onClick={closeModal} className="overlay"></div> 
            <div className="modal-content">
-           <ReactPlayer className="videoframe" url={Video.videolink} controls/>
+           <ReactPlayer className="video_player" url={Video.videolink} controls/>
            <div className="title">{Video.title}</div>
            <div className="description">{Video.description}</div>
            </div>
