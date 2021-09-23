@@ -6,7 +6,7 @@ import Header from "./components/Header";
 function App() {
   const [videos, setVideos] = useState([]);
   const [filteredVideos, setFilteredVideos] = useState([])
-  const [favourites, setFavourites] = useState([])
+  const [favourites, setFavourites] = useState(JSON.parse(localStorage.getItem('favData')) || [])
   const [tags, setTags] = useState("")
   useEffect(() => {
     const getVideos = async () => {
@@ -53,6 +53,9 @@ function App() {
   }
 
   const addFavourites = (video) => {
+    if (favourites === video) {
+      setFavourites([])
+    }
       setFavourites([...favourites, video])
   }
 
@@ -62,9 +65,8 @@ function App() {
 
   useEffect(() => {
     const setls = () => {
-      if (favourites.length !== 0) {
         localStorage.setItem('favData', JSON.stringify(favourites))
-      }
+      console.log(favourites)
     }
     setls()
   }, [favourites])
@@ -73,7 +75,7 @@ function App() {
 
 
   const showls = () => {
-    setFavourites(favourites)
+      setFilteredVideos([...JSON.parse(localStorage.getItem('favData') || '0')])
   }
 
 
@@ -89,9 +91,11 @@ function App() {
       <button type="button" onClick={showls}>FAVOURITES</button>
       </div>
       <div className="filter_videos">
+        <div className="tag_title">{filteredVideos ? tags.toUpperCase() : null}</div>
         {filteredVideos.map((video, index) => <Video handleRemoveFavourite={removeFavourite} handleAddFavourites={addFavourites} video={video} />)}
         </div>
       <div className="container">
+      <div className="tag_title">ALL VIDEOS</div>
            {videos.map((video, index) => <Video handleRemoveFavourite={removeFavourite} handleAddFavourites={addFavourites} video={video} />)} 
         </div>
     </div>

@@ -13,6 +13,7 @@ function Video({ video, handleAddFavourites, handleRemoveFavourite }) {
         setSelectedVideo(video)
     }
 
+
     const changeFavouriteIcon = (video) => {
         if (favouriteIcon === true) {
             handleRemoveFavourite(video)
